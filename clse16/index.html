@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 150vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container, .user-management {
+            background: rgb(136, 223, 65);
+            padding: 500px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(30, 17, 145, 0.1);
+            text-align: center;
+            width: 600px;
+            display: none; 
+        }
+        .container.active, .user-management.active {
+            display: block; 
+        }
+        .container input, .user-management input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .container button, .user-management button {
+            padding: 10px;
+            width: 100%;
+            background-color: #c54c14;
+            color: rgb(10, 10, 10);
+            border: none;
+            border-radius: 5px;
+        }
+        .message {
+            color: red;
+            font-size: 14px;
+        }
+        .table-container {
+            display: flex;
+            justify-content: center; 
+            margin-top: 20px;
+        }
+        table {
+            width: 80%; 
+            max-height: 400px; 
+            overflow-y: auto; 
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #fcf8f8;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .btn-logout {
+            background-color: #dc3545; 
+        }
+        .btn-edit, .btn-delete {
+            padding: 5px;
+            margin: 2px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-edit {
+            background-color: #28a745; 
+            color: white;
+        }
+        .btn-delete {
+            background-color: #dc3545; 
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="loginContainer" class="container active">
+        <h2>Inicio de Sesión</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuario" required>
+            <input type="password" id="password" placeholder="Contraseña" required>
+            <button type="submit">Entrar</button>
+            <p id="message" class="message"></p>
+        </form>
+    </div>
+
+    <div id="userManagementContainer" class="user-management">
+        <h2>Generar Nuevos Usuarios</h2>
+        <button id="logoutButton" class="btn-logout">Salir</button>
+        <form id="createUserForm">
+            <input type="text" id="newUsername" placeholder="Nuevo Usuario" required>
+            <input type="password" id="newPassword" placeholder="Nueva Contraseña" required>
+            <input type="text" id="newCorreo" placeholder="Correo Electrónico" required>
+            <button type="submit">Agregar Usuario</button>
+        </form>
+        <div class="table-container">
+            <table id="userTable">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Contraseña</th>
+                        <th>Correo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/crypto-js@4.1.1/crypto-js.min.js"></script>
+    <script src="proyecto.js"></script>
+</body>
+</html>
